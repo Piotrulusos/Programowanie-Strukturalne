@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int abs(int n) {
+    if (n < 0) {
+        return -n;
+    } else {
+        return n;
+    }
+}
+
+int main() {
+    int n;
+    printf("Podaj liczbe calkowita: ");
+    scanf("%d", &n);
+    printf("Wartosc bezwzgledna z %d to %d\n", n, abs(n));
+    return 0;
+}
