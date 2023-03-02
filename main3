@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int metoda;
+    float podstawa, wysokosc, a, b, c, p, pole;
+
+    printf("Wybierz sposob podania wymiarow trojkata:\n");
+    printf("1 - podstawa i wysokosc\n");
+    printf("2 - wszystkie boki\n");
+    scanf("%d", &metoda);
+
+    if (metoda == 1) {
+        printf("Podaj długosc podstawy trojkata: ");
+        scanf("%f", &podstawa);
+        printf("Podaj wysokosc trojkata: ");
+        scanf("%f", &wysokosc);
+        pole = 0.5 * podstawa * wysokosc;
+    } else if (metoda == 2) {
+        printf("Podaj długosc boku a: ");
+        scanf("%f", &a);
+        printf("Podaj długosc boku b: ");
+        scanf("%f", &b);
+        printf("Podaj długosc boku c: ");
+        scanf("%f", &c);
+        p = 0.5 * (a + b + c);
+        pole = sqrt(p * (p - a) * (p - b) * (p - c));
+    } else {
+        printf("Nieprawidlowy numer metody.");
+        pole = 0;
+    }
+
+    printf("Pole trojkata wynosi: %f\n", pole);
+
+    return 0;
+}
