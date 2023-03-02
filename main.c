@@ -1,17 +1,13 @@
 #include <stdio.h>
 
-int abs(int n) {
-    if (n < 0) {
-        return -n;
-    } else {
-        return n;
-    }
-}
-
 int main() {
-    int n;
-    printf("Podaj liczbe calkowita: ");
-    scanf("%d", &n);
-    printf("Wartosc bezwzgledna z %d to %d\n", n, abs(n));
+    int a, b;
+    printf("Podaj dwie liczby calkowite: ");
+    scanf("%d %d", &a, &b);
+    if (a >= b) {
+        printf("Wieksza liczba to %d\n", a);
+    } else {
+        printf("Wieksza liczba to %d\n", b);
+    }
     return 0;
 }
