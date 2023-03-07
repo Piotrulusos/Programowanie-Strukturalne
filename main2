@@ -1,14 +1,22 @@
-#include <stdio.h> //xd
-#include <stdlib.h>
+#include <stdio.h>
 
 int main() {
-    int a, b;
-    printf("Podaj dwie liczby calkowite: ");
-    scanf("%d %d", &a, &b);
-    if (abs(a) >= abs(b)) {
-        printf("%d ma wieksza wartosc bezwzgledna\n", a);
+    int liczba1, liczba2, wieksza;
+
+    printf("Podaj pierwsza liczbe: ");
+    scanf("%d", &liczba1);
+
+    printf("Podaj druga liczbe: ");
+    scanf("%d", &liczba2);
+
+    // Wybieramy większa wartosc bezwzgledna
+    if (abs(liczba1) > abs(liczba2)) {
+        wieksza = liczba1;
     } else {
-        printf("%d ma wieksza wartosc bezwzgledna\n", b);
+        wieksza = liczba2;
     }
+
+    printf("Liczba o wiekszej wartosci bezwzglednej to: %d\n", wieksza);
+
     return 0;
 }
