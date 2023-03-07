@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+   float a, b, c;
+   float delta;
+
+   printf("Podaj wspolczynniki rownania kwadratowego:\n");
+   scanf("%f %f %f", &a, &b, &c);
+
+   delta = b*b - 4*a*c; // obliczenie delty
+
+   if (delta > 0) {
+      float x1 = (-b + sqrt(delta)) / (2*a);
+      float x2 = (-b - sqrt(delta)) / (2*a);
+      printf("Rozwiazania: x1 = %f, x2 = %f\n", x1, x2);
+   }
+   else if (delta == 0) {
+      float x = -b / (2*a);
+      printf("Rozwiazanie: x = %f\n", x);
+   }
+   else {
+      printf("Brak rozwiazan rzeczywistych.\n");
+   }
+
+   return 0;
+}
