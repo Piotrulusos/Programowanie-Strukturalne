@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+   float a, b, c, d, e, f;
+   float x, y;
+   float det;
+
+   printf("Podaj wspolczynniki ukladu rownan:\n");
+   scanf("%f %f %f %f %f %f", &a, &b, &c, &d, &e, &f);
+
+   det = a*e - b*d; // wyznacznik macierzy
+
+   if (det != 0) {
+      x = (c*e - b*f) / det;
+      y = (a*f - c*d) / det;
+      printf("Rozwiazanie: x = %f, y = %f\n", x, y);
+   }
+   else if ((c*d - a*f) != 0 || (b*d - a*e) != 0) {
+      printf("Uklad rownan sprzeczny.\n");
+   }
+   else {
+      printf("Uklad rownan nieoznaczony.\n");
+   }
+
+   return 0;
+}
