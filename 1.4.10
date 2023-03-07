@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, sqrt;
+    printf("Podaj nieujemna liczbe calkowita n: ");
+    scanf("%d", &n);
+
+    // Szukamy pierwiastka zaokrąglonego w dol
+    for (i = 0; i*i <= n; i++) {
+        sqrt = i;
+    }
+
+    printf("Pierwiastek z %d zaokraglony w dol to %d\n", n, sqrt);
+    return 0;
+}
