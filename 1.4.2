@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    int n, m, i, multiple;
+    printf("Podaj dwie liczby calkowite n i m: ");
+    scanf("%d %d", &n, &m);
+    
+    for (i = 1; i <= m; i++) {
+        multiple = n * i;
+        printf("%d\n", multiple);
+    }
+    
+    return 0;
+}
