@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+   int choice;
+   float a, b, h;
+   float area;
+
+   printf("Wybierz figure, dla ktorej chcesz obliczyc pole:\n");
+   printf("1 - kwadrat\n");
+   printf("2 - prostokat\n");
+   printf("3 - trojkat\n");
+   scanf("%d", &choice);
+
+   switch(choice) {
+      case 1:
+         printf("Podaj bok kwadratu: ");
+         scanf("%f", &a);
+         area = a * a;
+         printf("Pole kwadratu o boku %f wynosi %f.\n", a, area);
+         break;
+      case 2:
+         printf("Podaj bok a prostokata: ");
+         scanf("%f", &a);
+         printf("Podaj bok b prostokata: ");
+         scanf("%f", &b);
+         area = a * b;
+         printf("Pole prostokata o bokach %f i %f wynosi %f.\n", a, b, area);
+         break;
+      case 3:
+         printf("Podaj podstawe trojkata: ");
+         scanf("%f", &a);
+         printf("Podaj wysokosc trojkata: ");
+         scanf("%f", &h);
+         area = 0.5 * a * h;
+         printf("Pole trojkata o podstawie %f i wysokosci %f wynosi %f.\n", a, h, area);
+         break;
+      default:
+         printf("Niepoprawny wybor.\n");
+   }
+
+   return 0;
+}
