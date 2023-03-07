@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    long long product = 1;
+
+    printf("Podaj liczbe calkowita n (>2): ");
+    scanf("%d", &n);
+
+    if (n % 2 == 0) {
+        // n jest parzyste
+        for (i = 2; i <= n; i += 2) {
+            product *= i;
+        }
+    } else {
+        // n jest nieparzyste
+        for (i = 2; i <= n-1; i += 2) {
+            product *= i;
+        }
+    }
+
+    printf("Iloczyn liczb parzystych od 2 do %d wynosi: %lld\n", n, product);
+
+    return 0;
+}
