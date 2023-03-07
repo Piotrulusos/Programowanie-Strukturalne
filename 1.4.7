@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int n, m, i, product;
+
+    printf("Podaj dwie liczby calkowite n i m (warunek n < m): ");
+    scanf("%d %d", &n, &m);
+
+    product = 1;
+    for (i = n; i <= m; i++) {
+        product *= i;
+    }
+
+    printf("Iloczyn liczb od n do m wynosi: %d\n", product);
+
+    return 0;
+}
