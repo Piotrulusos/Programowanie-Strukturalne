@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int pierwiastek(int n) {
+    int wynik = 0;
+    int dolna_granica = 0;
+    int gorna_granica = n;
+
+    while (dolna_granica <= gorna_granica) {
+        int srodek = (dolna_granica + gorna_granica) / 2;
+        if (srodek * srodek <= n) {
+            wynik = srodek;
+            dolna_granica = srodek + 1;
+        } else {
+            gorna_granica = srodek - 1;
+        }
+    }
+
+    return wynik;
+}
+
+void zad2_2_8() {
+    int n;
+    printf("Podaj nieujemna liczbe calkowita: ");
+    scanf("%d", &n);
+    if (n < 0) {
+        printf("Bledne dane wejsciowe\n");
+        return;
+    }
+    int wynik = pierwiastek(n);
+    printf("pierwiastek z %d = %d\n", n, wynik);
+}
+
+int main() {
+    zad2_2_8();
+    return 0;
+}
