@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int potega_dwojki(int n) {
+    int wynik = 1;
+    for (int i = 1; i <= n; i++) {
+        wynik *= 2;
+    }
+    return wynik;
+}
+
+void zad2_2_4() {
+    int n;
+    printf("Podaj nieujemna liczbe calkowita: ");
+    scanf("%d", &n);
+    if (n < 0) {
+        printf("Bledne dane wejsciowe\n");
+        return;
+    }
+    int wynik = potega_dwojki(n);
+    printf("2^%d = %d\n", n, wynik);
+}
+
+int main() {
+    zad2_2_4();
+    return 0;
+}
