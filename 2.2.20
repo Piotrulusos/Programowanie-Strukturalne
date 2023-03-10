@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+unsigned long long factorial(unsigned int n) {
+    if (n == 0) { // warunek bazowy
+        return 1;
+    } else { // rekurencyjne wywołanie
+        return n * factorial(n - 1);
+    }
+}
+
+void zad2_2_20() {
+    unsigned int n;
+    printf("Podaj nieujemna liczbe calkowita n: ");
+    scanf("%u", &n);
+    printf("%u! = %llu\n", n, factorial(n));
+}
+
+int main() {
+    zad2_2_20();
+    return 0;
+}
