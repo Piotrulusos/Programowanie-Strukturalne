@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <math.h>
+
+int floor_sqrt(int x, int m) {
+    return (int)floor(sqrt(x) * m);
+}
+
+int floor_sum(int n, int m) {
+    int ans = 0;
+    for (int i = 0; i <= n; i++) {
+        ans += floor_sqrt(i, m);
+    }
+    return ans;
+}
+void zad2_2_12() {
+    int n, m;
+    scanf("%d %d", &n, &m);
+    if (n < 0 || m <= 1) {
+        printf("Liczby n i m musza byc nieujemne, a m musi byc wieksze niz 1.\n");
+        return;
+    }
+    int sum = floor_sum(n, m);
+    printf("%d\n", sum);
+}
+
+int main() {
+    zad2_2_12();
+    return 0;
+}
+
