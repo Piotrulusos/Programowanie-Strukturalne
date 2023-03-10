@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int count = 0;
+
+void counter() {
+    count++;
+    printf("Funkcja zostala wywolana %d razy.\n", count);
+}
+
+int main() {
+    counter();
+    counter();
+    counter();
+    return 0;
+}
