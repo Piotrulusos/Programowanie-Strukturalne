@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int sequence(int n) {
+    if (n == 0 || n == 1) { // warunki bazowe
+        return 1;
+    } else { // rekurencyjne wywołanie
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += sequence(i);
+        }
+        return sum;
+    }
+}
+
+void zad2_2_24() {
+    int n;
+    printf("Podaj nieujemna liczbe calkowita n: ");
+    scanf("%d", &n);
+    printf("a%d = %d\n", n, sequence(n));
+}
+
+int main() {
+    zad2_2_24();
+    return 0;
+}
