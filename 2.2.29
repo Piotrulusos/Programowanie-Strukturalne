@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int gcd(int n, int m) {
+    if (n % m == 0) { // warunek bazowy
+        return m;
+    } else { // rekurencyjne wywołanie
+        return gcd(m, n % m);
+    }
+}
+
+void zad2_2_29() {
+    int n, m;
+    printf("Podaj dwie dodatnie liczby calkowite n i m: ");
+    scanf("%d %d", &n, &m);
+    printf("Najwiekszy wspolny dzielnik liczb %d i %d to: %d\n", n, m, gcd(n, m));
+}
+
+int main() {
+    zad2_2_29();
+    return 0;
+}
