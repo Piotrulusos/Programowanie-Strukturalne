@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* min_ptr(int* a, int* b) {
+    if (*a < *b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+void zad3_2_2() {
+    int x = 10;
+    int y = 20;
+    int* p = min_ptr(&x, &y);
+    printf("Adres mniejszej zmiennej: %p\n", (void*)p);
+    printf("Wartosc mniejszej zmiennej: %d\n", *p);
+    return;
+}
+
+int main() {
+    zad3_2_2();
+    return 0;
+}
