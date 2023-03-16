@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* allocate_int() {
+    int* ptr = (int*) malloc(sizeof(int));
+    if (ptr == NULL) {
+        printf("Blad: Nie udalo sie zapisac pamieci.\n");
+        exit(1);
+    }
+    return ptr;
+}
+
+void zad3_2_9() {
+    int* p = allocate_int();
+    *p = 42;
+    printf("Wartosc zmiennej: %d\n", *p);
+    free(p);
+    return;
+}
+
+int main() {
+    zad3_2_9();
+    return 0;
+}
