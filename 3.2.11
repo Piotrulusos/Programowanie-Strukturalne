@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* allocate_int_array(int n) {
+    int* ptr = (int*) malloc(n * sizeof(int));
+    if (ptr == NULL) {
+        printf("Błąd: Nie udało się zapisać w pamięci.\n");
+        exit(1);
+    }
+    return ptr;
+}
+
+void zad3_2_11() {
+    int* arr = allocate_int_array(5);
+    for (int i = 0; i < 5; i++) {
+        arr[i] = i + 1;
+    }
+    printf("Elementy tablicy: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    free(arr);
+    return;
+}
+
+int main() {
+    zad3_2_11();
+    return 0;
+}
