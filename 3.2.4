@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void swap_if_smaller(int* a, int* b) {
+    if (*b < *a) {
+        int temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+}
+
+void zad3_2_4() {
+    int x = 20;
+    int y = 10;
+    printf("Przed zamiana: x = %d, y = %d\n", x, y);
+    swap_if_smaller(&x, &y);
+    printf("Po zamianie (jesli wykonano): x = %d, y = %d\n", x, y);
+    return;
+}
+
+int main() {
+    zad3_2_4();
+    return 0;
+}
