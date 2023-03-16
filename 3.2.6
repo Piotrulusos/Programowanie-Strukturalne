@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <stdio.h>
+
+void assign_value(int n, int* w) {
+    *w = n;
+}
+
+void zad3_2_6() {
+    int x = 0;
+    assign_value(42, &x);
+    printf("x = %d\n", x);
+    return;
+}
+
+int main() {
+    zad3_2_6();
+    return 0;
+}
+
