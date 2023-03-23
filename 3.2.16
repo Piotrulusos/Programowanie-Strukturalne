@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void przepisz_wartosc(const int *wsk1, int *const wsk2) {
+    *wsk2 = *wsk1;
+}
+
+void zad3_2_16() {
+    int a = 0, b = 0;
+    const int c = 42;
+
+    printf("Wartosci przed wywolaniem funkcji:\n");
+    printf("a = %d\nb = %d\nc = %d\n", a, b, c);
+
+    przepisz_wartosc(&c, &a);
+    przepisz_wartosc(&c, &b);
+
+    printf("Wartosci po wywolaniu funkcji:\n");
+    printf("a = %d\nb = %d\nc = %d\n", a, b, c);
+
+    return;
+}
+
+int main() {
+    zad3_2_16();
+    return 0;
+}
