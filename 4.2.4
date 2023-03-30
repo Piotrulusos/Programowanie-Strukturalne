@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+double srednia_geometryczna(int n, unsigned int tab[]) {
+    int i;
+    double iloczyn = 1.0;
+    double srednia;
+
+    for (i = 0; i < n; i++) {
+        iloczyn *= tab[i];
+    }
+
+    srednia = pow(iloczyn, 1.0/n);
+
+    return srednia;
+}
+
+void zad4_2_4() {
+    int n = 5;
+    unsigned int tab[5] = {1, 2, 3, 4, 5};
+    double wynik;
+
+    wynik = srednia_geometryczna(n, tab);
+
+    printf("Srednia geometryczna elementow tablicy to: %f", wynik);
+
+    return;
+}
+
+int main() {
+    zad4_2_4();
+    return 0;
+}
