@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void przepisz_tablice(int n, int tab1[], int tab2[]) {
+    int i;
+    for (i = 0; i < n; i++) {
+        tab2[i] = tab1[i];
+    }
+}
+
+void przepisz_tablice_odwrotnie(int n, int tab1[], int tab2[]) {
+    int i;
+    for (i = 0; i < n; i++) {
+        tab2[i] = tab1[n-1-i];
+    }
+}
+
+void zad4_2_6() {
+    int n = 5;
+    int tab1[5] = {1, 2, 3, 4, 5};
+    int tab2[5];
+
+    // przepisanie tablicy tab1 do tablicy tab2
+    przepisz_tablice(n, tab1, tab2);
+
+    // wyświetlenie zawartości tablicy tab2
+    int i;
+    for (i = 0; i < n; i++) {
+        printf("%d ", tab2[i]);
+    }
+    printf("\n");
+
+    // przepisanie tablicy tab1 do tablicy tab2 w odwrotnej kolejności
+    przepisz_tablice_odwrotnie(n, tab1, tab2);
+
+    // wyświetlenie zawartości tablicy tab2
+    for (i = 0; i < n; i++) {
+        printf("%d ", tab2[i]);
+    }
+    printf("\n");
+
+    return;
+}
+
+int main() {
+    zad4_2_6();
+    return 0;
+}
