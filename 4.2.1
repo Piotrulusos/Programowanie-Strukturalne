@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void funkcja(int n, int tab[]) {
+    int i;
+
+    // a) nadanie wartości zero wszystkim elementom tablicy tab
+    for (i = 0; i < n; i++) {
+        tab[i] = 0;
+    }
+
+    // b) zapisanie do kolejnych elementów tablicy wartości równej ich indeksom
+    for (i = 0; i < n; i++) {
+        tab[i] = i;
+    }
+
+    // c) podwojenie wartości wszystkich elementów w tablicy tab
+    for (i = 0; i < n; i++) {
+        tab[i] *= 2;
+    }
+
+    // d) wstawienie do wszystkich komórek tablicy tab wartości bezwzględnych ich pierwotnych wartości
+    for (i = 0; i < n; i++) {
+        tab[i] = abs(tab[i]);
+    }
+}
+
+void zad4_2_1() {
+    int n = 5;
+    int tab[5] = {1, -2, 3, -4, 5};
+    int i;
+
+    funkcja(n, tab);
+
+    for (i = 0; i < n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    return;
+}
+
+int main() {
+    zad4_2_1();
+    return 0;
+}
