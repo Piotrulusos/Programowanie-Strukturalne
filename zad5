@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int foo(const int* wsk1, const int* wsk2) {
+    return *wsk1 - *wsk2;
+}
+
+void zad5() {
+    int a = 10;
+    const int b = 5;
+    const int* wsk1 = &b;
+    const int* wsk2 = &a;
+
+    int wynik = foo(wsk1, wsk2);
+
+    printf("Wynik funkcji foo: %d\n", wynik);
+    return;
+}
+
+int main() {
+    zad5();
+    return 0;
+}
