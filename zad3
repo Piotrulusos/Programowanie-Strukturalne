@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+typedef int (*intFunction)(int);
+
+int sumFunctions(intFunction func1, intFunction func2, int n) {
+    return (*func1)(n) + (*func2)(n);
+}
+
+int addOne(int x) {
+    return x + 1;
+}
+
+int addTwo(int x) {
+    return x + 2;
+}
+
+void zad3() {
+    int n = 5;
+
+    int sum = sumFunctions(&addOne, &addTwo, n);
+    printf("Suma funkcji addOne i addTwo dla n=%d wynosi %d\n", n, sum);
+
+    return;
+}
+
+int main() {
+    zad3();
+    return 0;
+}
