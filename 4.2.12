@@ -1,0 +1,149 @@
+#include <stdio.h>
+
+void reverse_array(int n, int tab[]) {
+    int temp;
+    for (int i = 0; i < n/2; i++) {
+        temp = tab[i];
+        tab[i] = tab[n-1-i];
+        tab[n-1-i] = temp;
+    }
+}
+
+void przesun_w_lewo(int n, int tab[]) {
+    int temp = tab[0];
+    for (int i = 0; i < n-1; i++) {
+        tab[i] = tab[i+1];
+    }
+    tab[n-1] = temp;
+}
+
+void przesun_w_prawo(int tab[], int n) {
+    int ostatni = tab[n-1];
+    for(int i=n-1; i>0; i--) {
+        tab[i] = tab[i-1];
+    }
+    tab[0] = ostatni;
+
+}
+
+void zad4_2_12a() {
+    int tab[] = {1, 2, 3, 4, 5};
+    int n = sizeof(tab)/sizeof(tab[0]);
+
+    reverse_array(n, tab);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tab[i]);
+    }
+    printf("\n");
+
+    return;
+}
+
+void zad4_2_12b() {
+    int tab[] = {1, 2, 3, 4, 5};
+    int n = sizeof(tab)/sizeof(tab[0]);
+
+    przesun_w_lewo(n, tab);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tab[i]);
+    }
+    printf("\n");
+
+    return;
+}
+
+void zad4_2_12c() {
+    int tab[] = {1, 2, 3, 4, 5};
+    int n = sizeof(tab)/sizeof(tab[0]);
+
+    printf("Tablica przed przesunieciem:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    przesun_w_prawo(tab, n);
+
+    printf("\nTablica po przesunieciu:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    return;
+}
+
+void sortuj_rosnaco(int tab[], int n) {
+    for(int i=0; i<n-1; i++) {
+        for(int j=0; j<n-i-1; j++) {
+            if(tab[j] > tab[j+1]) {
+                int temp = tab[j];
+                tab[j] = tab[j+1];
+                tab[j+1] = temp;
+            }
+        }
+    }
+}
+void zad4_2_12d() {
+    int tab[] = {3, 2, 5, 1, 4};
+    int n = 5; //czy można na egzaminie na sztywno wpisywać wartość n czy robić jak w powyższych funkcjach?
+
+    printf("\nTablica przed sortowaniem:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    sortuj_rosnaco(tab, n);
+
+    printf("\nTablica po sortowaniu:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    return;
+}
+
+void sortuj_malejaco(int tab[], int n) {
+    for(int i=0; i<n-1; i++) {
+        for(int j=0; j<n-i-1; j++) {
+            if(tab[j] < tab[j+1]) {
+                int temp = tab[j];
+                tab[j] = tab[j+1];
+                tab[j+1] = temp;
+            }
+        }
+    }
+}
+
+#include <stdio.h>
+
+void sortuj_malejaco(int tab[], int n);
+
+void zad4_2_12e() {
+    int tab[] = {3, 2, 5, 1, 4};
+    int n = 5;
+
+    printf("\nTablica przed sortowaniem:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    sortuj_malejaco(tab, n);
+
+    printf("\nTablica po sortowaniu:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    return;
+}
+
+
+int main() {
+    zad4_2_12a();
+//    zad4_2_12b();
+//    zad4_2_12c();
+//    zad4_2_12d();
+//    zad4_2_12e();
+    return 0;
+}
