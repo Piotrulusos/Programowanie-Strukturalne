@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+typedef int (*intFunction)(int);
+
+bool compareFunctions(intFunction func1, intFunction func2, unsigned int n) {
+    for (unsigned int i = 0; i <= n; i++) {
+        if ((*func1)(i) != (*func2)(i)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int addOne(int x) {
+    return x + 1;
+}
+
+int addTwo(int x) {
+    return x + 2;
+}
+
+void zad3_2_14() {
+    unsigned int n = 5;
+
+    bool result1 = compareFunctions(&addOne, &addTwo, n);
+    printf("Wynik porównania funkcji addOne i addTwo: %s\n", result1 ? "true" : "false");
+
+    bool result2 = compareFunctions(&addOne, &addOne, n);
+    printf("Wynik porównania funkcji addOne i addOne: %s\n", result2 ? "true" : "false");
+
+    return;
+}
+
+int main() {
+    zad3_2_14();
+    return 0;
+}
