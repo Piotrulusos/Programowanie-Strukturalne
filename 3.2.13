@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+double applyFunc(int (*func)(int), int x) {
+    return (*func)(x);
+}
+
+double someFunc(int x) {
+    return x * 2.5;
+}
+
+void zad3_2_13() {
+    int arg = 5;
+
+    double result1 = applyFunc(&someFunc, arg);
+    printf("Wynik funkcji someFunc: %lf\n", result1);
+
+    double result2 = applyFunc(&cos, arg);
+    printf("Wynik funkcji cos: %lf\n", result2);
+
+    return;
+}
+
+int main() {
+    zad3_2_13();
+    return 0;
+}
