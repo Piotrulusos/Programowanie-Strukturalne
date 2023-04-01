@@ -1,0 +1,390 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void funkcja(int n, int tab[]) {
+    int i;
+
+    // a) nadanie wartości zero wszystkim elementom tablicy tab
+    for (i = 0; i < n; i++) {
+        tab[i] = 0;
+    }
+
+    // b) zapisanie do kolejnych elementów tablicy wartości równej ich indeksom
+    for (i = 0; i < n; i++) {
+        tab[i] = i;
+    }
+
+    // c) podwojenie wartości wszystkich elementów w tablicy tab
+    for (i = 0; i < n; i++) {
+        tab[i] *= 2;
+    }
+
+    // d) wstawienie do wszystkich komórek tablicy tab wartości bezwzględnych ich pierwotnych wartości
+    for (i = 0; i < n; i++) {
+        tab[i] = abs(tab[i]);
+    }
+}
+
+void zad4_2_1() {
+    int n = 5;
+    int tab[5] = {1, -2, 3, -4, 5};
+    int i;
+
+    funkcja(n, tab);
+
+    for (i = 0; i < n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    return;
+}
+
+double srednia_geometryczna(int n, unsigned int tab[]) {
+    int i;
+    double iloczyn = 1.0;
+    double srednia;
+
+    for (i = 0; i < n; i++) {
+        iloczyn *= tab[i];
+    }
+
+    srednia = pow(iloczyn, 1.0/n);
+
+    return srednia;
+}
+
+void zad4_2_4() {
+    int n = 5;
+    unsigned int tab[5] = {1, 2, 3, 4, 5};
+    double wynik;
+
+    wynik = srednia_geometryczna(n, tab);
+
+    printf("\nSrednia geometryczna elementow tablicy to: %f", wynik);
+    printf("\n");
+
+    return;
+}
+
+void przepisz_tablice(int n, int tab1[], int tab2[]) {
+    int i;
+    for (i = 0; i < n; i++) {
+        tab2[i] = tab1[i];
+    }
+}
+
+void przepisz_tablice_odwrotnie(int n, int tab1[], int tab2[]) {
+    int i;
+    for (i = 0; i < n; i++) {
+        tab2[i] = tab1[n-1-i];
+    }
+}
+
+void zad4_2_6() {
+    int n = 5;
+    int tab1[5] = {1, 2, 3, 4, 5};
+    int tab2[5];
+
+    // przepisanie tablicy tab1 do tablicy tab2
+    przepisz_tablice(n, tab1, tab2);
+
+    // wyświetlenie zawartości tablicy tab2
+    int i;
+    for (i = 0; i < n; i++) {
+        printf("%d ", tab2[i]);
+    }
+    printf("\n");
+
+    // przepisanie tablicy tab1 do tablicy tab2 w odwrotnej kolejności
+    przepisz_tablice_odwrotnie(n, tab1, tab2);
+
+    // wyświetlenie zawartości tablicy tab2
+    for (i = 0; i < n; i++) {
+        printf("%d ", tab2[i]);
+    }
+    printf("\n");
+
+    return;
+}
+
+void podpunktA(int n, int tab1[], int tab2[], int tab3[]) {
+    // przypisuje sumę odpowiadających elementów tablic tab1 i tab2 do tablicy tab3
+    for (int i = 0; i < n; i++) {
+        tab3[i] = tab1[i] + tab2[i];
+    }
+}
+
+void podpunktB(int n, int tab1[], int tab2[], int tab3[]) {
+    // przypisuje większy spośród elementów tab1 i tab2 do tablicy tab3
+    for (int i = 0; i < n; i++) {
+        tab3[i] = tab1[i] > tab2[i] ? tab1[i] : tab2[i];
+    }
+}
+
+void podpunktC(int n, int tab1[], int tab2[], int tab3[]) {
+    // przypisuje zawartość tab1 do tab2, tab2 do tab3 oraz tab3 do tab1
+    int temp[n];
+    for (int i = 0; i < n; i++) {
+        temp[i] = tab1[i];
+        tab1[i] = tab2[i];
+        tab2[i] = tab3[i];
+        tab3[i] = temp[i];
+    }
+}
+
+void zad4_2_7() {
+    int n = 5;
+    int tab1[5] = {1, 2, 3, 4, 5};
+    int tab2[5] = {6, 7, 8, 9, 10};
+    int tab3[5] = {0};
+
+    podpunktA(n, tab1, tab2, tab3);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tab3[i]);
+    }
+    printf("\n");
+
+    podpunktB(n, tab1, tab2, tab3);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tab3[i]);
+    }
+    printf("\n");
+
+    podpunktC(n, tab1, tab2, tab3);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tab3[i]);
+    }
+    printf("\n");
+
+    return;
+}
+
+int findMax(int n, int tab[]) {
+    int max = tab[0];
+    for (int i = 1; i < n; i++) {
+        if (tab[i] > max) {
+            max = tab[i];
+        }
+    }
+    return max;
+}
+
+int findMin(int n, int tab[]) {
+    int min = tab[0];
+    for (int i = 1; i < n; i++) {
+        if (tab[i] < min) {
+            min = tab[i];
+        }
+    }
+    return min;
+}
+
+int findMaxIndex(int n, int tab[]) {
+    int maxIndex = 0;
+    for (int i = 1; i < n; i++) {
+        if (tab[i] > tab[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+    return maxIndex;
+}
+
+int findMinIndex(int n, int tab[]) {
+    int minIndex = 0;
+    for (int i = 1; i < n; i++) {
+        if (tab[i] < tab[minIndex]) {
+            minIndex = i;
+        }
+    }
+    return minIndex;
+}
+
+int findMaxAbs(int n, int tab[]) {
+    int maxAbs = abs(tab[0]);
+    for (int i = 1; i < n; i++) {
+        if (abs(tab[i]) > maxAbs) {
+            maxAbs = abs(tab[i]);
+        }
+    }
+    return maxAbs;
+}
+
+int findMaxAbsIndex(int n, int tab[]) {
+    int maxAbsIndex = 0;
+    for (int i = 1; i < n; i++) {
+        if (abs(tab[i]) > abs(tab[maxAbsIndex])) {
+            maxAbsIndex = i;
+        }
+    }
+    return maxAbsIndex;
+}
+
+void zad4_2_10() {
+    int n = 5;
+    int tab[] = {3, -5, 1, 8, 2};
+
+    printf("Najwieksza wartosc w tablicy: %d\n", findMax(n, tab));
+    printf("Najmniejsza wartosc w tablicy: %d\n", findMin(n, tab));
+    printf("Indeks elementu o najwiekszej wartosci w tablicy: %d\n", findMaxIndex(n, tab));
+    printf("Indeks elementu o najmniejszej wartosci w tablicy: %d\n", findMinIndex(n, tab));
+    printf("Najwieksza wartosc bezwzgledna w tablicy: %d\n", findMaxAbs(n, tab));
+    printf("Indeks elementu o najwiekszej wartosci bezwzglednej w tablicy: %d\n", findMaxAbsIndex(n, tab));
+
+    return 0;
+}
+
+void reverse_array(int n, int tab[]) {
+    int temp;
+    for (int i = 0; i < n/2; i++) {
+        temp = tab[i];
+        tab[i] = tab[n-1-i];
+        tab[n-1-i] = temp;
+    }
+}
+
+void przesun_w_lewo(int n, int tab[]) {
+    int temp = tab[0];
+    for (int i = 0; i < n-1; i++) {
+        tab[i] = tab[i+1];
+    }
+    tab[n-1] = temp;
+}
+
+void przesun_w_prawo(int tab[], int n) {
+    int ostatni = tab[n-1];
+    for(int i=n-1; i>0; i--) {
+        tab[i] = tab[i-1];
+    }
+    tab[0] = ostatni;
+
+}
+
+void zad4_2_12a() {
+    int tab[] = {1, 2, 3, 4, 5};
+    int n = sizeof(tab)/sizeof(tab[0]);
+
+    reverse_array(n, tab);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tab[i]);
+    }
+    printf("\n");
+
+    return;
+}
+
+void zad4_2_12b() {
+    int tab[] = {1, 2, 3, 4, 5};
+    int n = sizeof(tab)/sizeof(tab[0]);
+
+    przesun_w_lewo(n, tab);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tab[i]);
+    }
+    printf("\n");
+
+    return;
+}
+
+void zad4_2_12c() {
+    int tab[] = {1, 2, 3, 4, 5};
+    int n = sizeof(tab)/sizeof(tab[0]);
+
+    printf("Tablica przed przesunieciem:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    przesun_w_prawo(tab, n);
+
+    printf("\nTablica po przesunieciu:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    return;
+}
+
+void sortuj_rosnaco(int tab[], int n) {
+    for(int i=0; i<n-1; i++) {
+        for(int j=0; j<n-i-1; j++) {
+            if(tab[j] > tab[j+1]) {
+                int temp = tab[j];
+                tab[j] = tab[j+1];
+                tab[j+1] = temp;
+            }
+        }
+    }
+}
+void zad4_2_12d() {
+    int tab[] = {3, 2, 5, 1, 4};
+    int n = 5; //czy można na egzaminie na sztywno wpisywać wartość n czy robić jak w powyższych funkcjach?
+
+    printf("\nTablica przed sortowaniem:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    sortuj_rosnaco(tab, n);
+
+    printf("\nTablica po sortowaniu:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    return;
+}
+
+void sortuj_malejaco(int tab[], int n) {
+    for(int i=0; i<n-1; i++) {
+        for(int j=0; j<n-i-1; j++) {
+            if(tab[j] < tab[j+1]) {
+                int temp = tab[j];
+                tab[j] = tab[j+1];
+                tab[j+1] = temp;
+            }
+        }
+    }
+}
+
+#include <stdio.h>
+
+void sortuj_malejaco(int tab[], int n);
+
+void zad4_2_12e() {
+    int tab[] = {3, 2, 5, 1, 4};
+    int n = 5;
+
+    printf("\nTablica przed sortowaniem:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    sortuj_malejaco(tab, n);
+
+    printf("\nTablica po sortowaniu:\n");
+    for(int i=0; i<n; i++) {
+        printf("%d ", tab[i]);
+    }
+
+    return;
+}
+
+int main() {
+    zad4_2_1();
+    zad4_2_4();
+    zad4_2_6();
+    zad4_2_7();
+    zad4_2_10();
+    zad4_2_12a();
+    zad4_2_12b();
+    zad4_2_12c();
+    zad4_2_12d();
+    zad4_2_12e();
+    return 0;
+}
