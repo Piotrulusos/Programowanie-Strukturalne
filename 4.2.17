@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+double* copy_array(int n, double* tab) {
+    double* new_tab = malloc(n * sizeof(double));
+
+    for (int i = 0; i < n; i++) {
+        new_tab[i] = tab[i];
+    }
+
+    return new_tab;
+}
+
+void zad4_2_17() {
+    int n;
+    printf("Podaj liczbe elementow tablicy: ");
+    scanf("%d", &n);
+
+    double* tab = malloc(n * sizeof(double));
+
+    for (int i = 0; i < n; i++) {
+        tab[i] = i * 1.5;
+    }
+    free(tab);
+    return;
+}
+
+int main() {
+    zad4_2_17();
+    return 0;
+}
