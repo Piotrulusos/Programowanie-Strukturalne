@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* nonzero_elements(int n, int* tab1) {
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (tab1[i] != 0) {
+            count++;
+        }
+    }
+
+    int* tab2 = malloc(count * sizeof(int));
+    int j = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (tab1[i] != 0) {
+            tab2[j] = tab1[i];
+            j++;
+        }
+    }
+
+    return tab2;
+}
+
+void zad4_2_19() {
+    int n = 5;
+    int tab1[5] = {0, 1, 0, 2, 3};
+    int* tab2 = nonzero_elements(n, tab1);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tab2[i]);
+    }
+
+    free(tab2);
+    return;
+}
+
+int main() {
+    zad4_2_19();
+    return 0;
+}
