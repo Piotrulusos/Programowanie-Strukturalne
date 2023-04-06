@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void free_array(double* array, int size) {
+    free(array);
+    printf("Pamiec zwolniona.\n");
+}
+
+void zad4_2_16() {
+    int n = 10;
+    double* array = malloc(n * sizeof(double));
+
+    free_array(array, n);
+    return;
+}
+
+int main() {
+    zad4_2_16();
+    return 0;
+}
