@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h> 
+
+double* create_array(int n) {
+    double* array = malloc(n * sizeof(double)); 
+
+    
+    if (array == NULL) {
+        printf("Nie udalo sie zaalokowac pamieci dla tablicy!\n");
+        exit(1);
+    }
+
+    return array; 
+}
+
+int main() {
+    int n = 10;
+    double* array = create_array(n);
+
+    
+
+    free(array); 
+    return 0;
+}
