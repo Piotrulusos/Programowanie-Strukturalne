@@ -13,12 +13,13 @@ double* create_array(int n) {
     return array; 
 }
 
-int main() {
+void zad4_2_14() {
     int n = 10;
     double* array = create_array(n);
-
-    
-
     free(array); 
+    return;
+
+int main() {
+    zad4_2_14();
     return 0;
 }
