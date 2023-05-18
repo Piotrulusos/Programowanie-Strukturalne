@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int** createDynamicArray(int n, int m) {
+    int** array = (int**)malloc(n * sizeof(int*));
+    for (int i = 0; i < n; i++) {
+        array[i] = (int*)malloc(m * sizeof(int));
+    }
+
+    return array;
+}
+
+void zad6_2_1(){
+    int n = 3;
+    int m = 4;
+
+    int** myArray = createDynamicArray(n, m);
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            myArray[i][j] = i * m + j;
+            printf("%d ", myArray[i][j]);
+        }
+        printf("\n");
+    }
+
+    for (int i = 0; i < n; i++) {
+        free(myArray[i]);
+    }
+    free(myArray);
+}
+
+
+int*** createDynamicArray1(int n, int m, int k) {
+    // Tworzenie tablicy n x m x k
+    int*** array = (int***)malloc(n * sizeof(int**));
+    for (int i = 0; i < n; i++) {
+        array[i] = (int**)malloc(m * sizeof(int*));
+        for (int j = 0; j < m; j++) {
+            array[i][j] = (int*)malloc(k * sizeof(int));
+        }
+    }
+
+    return array;
+}
+
+void zad6_2_5a(){
+    int n = 2;
+    int m = 3;
+    int k = 4;
+
+    int*** myArray = createDynamicArray1(n, m, k);
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            for (int l = 0; l < k; l++) {
+                myArray[i][j][l] = i * m * k + j * k + l;
+                printf("%d ", myArray[i][j][l]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            free(myArray[i][j]);
+        }
+        free(myArray[i]);
+    }
+    free(myArray);
+
+}
+
+void deleteDynamicArray(int*** array, int n, int m, int k) {
+    // Zwalnianie pamięci tablicy
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            free(array[i][j]);
+        }
+        free(array[i]);
+    }
+    free(array);
+}
+
+void zad5_2_5b() {
+    int n = 2;
+    int m = 3;
+    int k = 4;
+
+    int*** myArray = (int***)malloc(n * sizeof(int**));
+    for (int i = 0; i < n; i++) {
+        myArray[i] = (int**)malloc(m * sizeof(int*));
+        for (int j = 0; j < m; j++) {
+            myArray[i][j] = (int*)malloc(k * sizeof(int));
+        }
+    }
+
+    deleteDynamicArray(myArray, n, m, k);
+}
+
+
+int main() {
+    zad6_2_1();
+    zad6_2_5a();
+    zad5_2_5b();
+
+    return 0;
+}
